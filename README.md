@@ -1,6 +1,18 @@
-[![Build Status](https://travis-ci.org/epeli/metar.js.png?branch=master)](https://travis-ci.org/epeli/metar.js)
+# metar.js Custom
 
-# metar.js
+This build has been modified by Christopher Zenzel to support additional data fields within the United States METAR format provided by the National Weather Service. These tags include, but are not limited to items such as hourly precipitation.
+
+Christopher is currently looking for work! Support his #Autism by following him on [Linked-In](https://linkedin.com/in/chriszenzel) or his [web site](https://chriszenzel.com). You can also connect and see if he would be the right fit for your organization or company.
+
+This Node module was modified to provide additional data for him to learn Hadoop as part of his job search.
+
+Thanks!
+
+Christopher Zenzel
+
+# Original Project Readme
+
+## metar.js
 
 [METAR](http://en.wikipedia.org/wiki/METAR) (Meteorological Aviation Report) parser for Javascript
 
