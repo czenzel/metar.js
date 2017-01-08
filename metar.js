@@ -332,15 +332,51 @@
 	// Added hourly precipitation
 	// by Christopher Zenzel - chriszenzel.com	
 	METAR.prototype.parseHourlyPrecipitation = function() {
-		this.next();
-		if (this.current === undefined || this.current === null) return;
-		
-		if (this.current.length === 5 && "P" === this.current[0]) {
-			var n_hr_precip = this.current.substr(1);
-			n_hr_precip = parseInt(n_hr_precip);
-			n_hr_precip = n_hr_precip * 0.01;
-			this.result.precipitation = n_hr_precip;
+		for (var i = 0; i < this.fields.length; i++) {
+			var current = this.fields[i];
+			if (current.length === 5 && "P" === current[0]) {
+				var n_time_precip = current.substr(1);
+				n_time_precip = parseInt(n_time_precip);
+				n_time_precip = n_time_precip * 0.01;
+				return n_time_precip;
+			}
 		}
+	};
+	
+	// Added 3 and 6 hourly precipitation parsing
+	// by Christopher Zenzel - chriszenzel.com
+	METAR.prototype.parse3HourPrecipitation = function() {
+		for (var i = 0; i < this.fields.length; i++) {
+			var current = this.fields[i];
+			if (current.length === 5 && "3" === current[0]) {
+				var n_time_precip = current.substr(1);
+				n_time_precip = parseInt(n_time_precip);
+				n_time_precip = n_time_precip * 0.01;
+				return n_time_precip;
+			}
+		}
+	};
+
+	// Added 3 and 6 hourly precipitation parsing
+	// by Christopher Zenzel - chriszenzel.com
+	METAR.prototype.parse6HourPrecipitation = function() {
+		for (var i = 0; i < this.fields.length; i++) {
+			var current = this.fields[i];
+			if (current.length === 5 && "6" === current[0]) {
+				var n_time_precip = current.substr(1);
+				n_time_precip = parseInt(n_time_precip);
+				n_time_precip = n_time_precip * 0.01;
+				return n_time_precip;
+			}
+		}
+	};
+	
+	METAR.prototype.parsePrecipitation = function() {
+		this.result.precipitation = {
+			hourly: this.parseHourlyPrecipitation(),
+			three_hours: this.parse3HourPrecipitation(),
+			six_hours: this.parse6HourPrecipitation()
+		};
 	};
 
 	METAR.prototype.parse = function() {
@@ -358,7 +394,7 @@
 		this.parseTempDewpoint();
 		this.parseAltimeter();
 		this.parseRecentSignificantWeather();
-		this.parseHourlyPrecipitation();
+		this.parsePrecipitation();
 	};
 
 	function parseMETAR(metarString) {

@@ -267,6 +267,15 @@ describe("METAR parser", function() {
             assert.equal(30.29, m.altimeter_in_hg);
         });
     });
+    
+    // Added Precipitation Quick Test
+    // by Christopher Zenzel - chriszenzel.com
+    describe("for precipitation", function() {
+        it("can parse hourly precipitation", function() {
+            var m = parseMetar("EFKI 171950Z 00000KT 9999 MIFG FEW012 SCT200 10/11 P0003 Q1006");
+            assert.equal(0.03, m.precipitation.hourly);
+        });
+    });
 
     describe("for recent significant weather", function() {
         it("can parse Moderate/heavy rain showers [RESHRA]", function() {
