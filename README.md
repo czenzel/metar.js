@@ -1,4 +1,5 @@
 # metar.js Custom
+=======
 
 This build has been modified by Christopher Zenzel to support additional data fields within the United States METAR format provided by the National Weather Service. These tags include, but are not limited to items such as hourly precipitation.
 
@@ -16,7 +17,7 @@ Christopher Zenzel
 
 [METAR](http://en.wikipedia.org/wiki/METAR) (Meteorological Aviation Report) parser for Javascript
 
-Demo: <http://epeli.github.io/metar.js/>
+Demo: <http://skydivejkl.github.io/metar.js/>
 
 ## Install
 
@@ -84,6 +85,12 @@ console.log(parseMETAR("EFJY 171950Z AUTO 27006KT 220V310 9999 FEW012 SCT015 BKN
 
 # Changelog
 
+### 1.0.0
+
+- Renamed `altimeter_in_hg` to `altimeterInHg` and `altimeter_hpa` to `altimeterInHpa` for consistency
+- Works in browsers without precompiling
+- Bunch of bug fixes
+
 ## 0.3.0
 
 - Parse REUP [#16](https://github.com/skydivejkl/metar.js/pull/16)
@@ -92,5 +99,4 @@ console.log(parseMETAR("EFJY 171950Z AUTO 27006KT 220V310 9999 FEW012 SCT015 BKN
 
 ## 0.2.0
 
-  - Support negative dewpoint and air temp [#10](https://github.com/epeli/metar.js/pull/10)
-
+  - Support negative dewpoint and air temp [#10](https://github.com/skydivejkl/metar.js/pull/10)

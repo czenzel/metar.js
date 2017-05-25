@@ -1,15 +1,20 @@
 {
-  "name": "metar-custom",
-  "version": "0.3.1-custom",
-  "description": "METAR weather report parser modified to support additional METAR data formats.",
+  "name": "metar",
+  "version": "1.0.0",
+  "description": "METAR weather report parser",
   "main": "metar.js",
   "scripts": {
-    "test": "mocha -C test"
+    "test": "eslint metar.js test/*.js && jest"
   },
-  "repository": "https://github.com/epeli/metarjs.git",
-  "author": "Esa-Matti Suuronen / Christopher Zenzel",
+  "repository": "https://github.com/skydivejkl/metarjs.git",
+  "author": "Esa-Matti Suuronen",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "~1.11.0"
-  }
+    "eslint": "^3.17.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-react": "^6.10.0",
+    "jest": "^19.0.2",
+    "prettier": "^0.21.0"
+  },
+  "dependencies": {}
 }
